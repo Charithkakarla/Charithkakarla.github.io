@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>charith</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+
+
+</head>
+
+<body>
+    <canvas id="c"></canvas>
+
+    <header class="header">
+        <a href="#home" class="logo">
+            <img src="./logo.png" alt="Logo" class="logo-img"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span class="logo-text" style="display: none;">CK</span>
+        </a>
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="active">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#experience">EXPERIENCE</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#skills">SKILLS</a>
+        </nav>
+    </header>
+
+    <section class="home fade-in-up" id="home">
+        <div class="home-content">
+            <h1>Charith k</h1>
+            <h3 class="text-animation"><span></span></h3>
+
+            <div class="text-container">
+                <div class="text-wrapper">
+                    <div class="text active" id="text1">Do, or do not</div>
+                    <div class="text" id="text2">There is no try</div>
+                </div>
+            </div>
+            <p> There is a difference between knowing the path and walking the path.
+            </p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/kakarla-charith-377512295/"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/Charithkakarla"><i class='bx bxl-github'></i></a>
+                <a href="https://www.instagram.com/charith__kakarla/"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><i class='bx bxl-reddit'></i></a>
+            </div>
+
+        </div>
+        <div class="home-img">
+            <img src="./pfp.jpg" alt="">
+        </div>
+    </section>
+
+    <section class="about fade-in-up" id="about">
+        <h2 class="heading"><span>About Me</span></h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>It is only after we've lost everything that we're free to do anything.</p>
+                <p>UG @vnr
+                    CSE-AIML
+                </p>
+                <p>ai doesn’t sleep — just learns.</p>
+                <div class="skills">
+                    <div class="skill-category">
+                        <h4>Technical Skills</h4>
+                        <p>C++ • Python • Flask • SQL • AI Agents • React • NodeJs • linux • Git • DSA • (cloud)
+                            • UI/UX Design • ML • Tableau • Javascript</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Creative Skills</h4>
+                        <p> touch typist • athlete • photography • rubix • gamer
+                            • editor • animations • badminton • cricket • puzzels</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience fade-in-up" id="experience">
+        <h2 class="heading"><span>My Experience</span></h2>
+        <div class="experience-container">
+            <div class="experience-item">
+                <h3>VOICE-4 organisation</h3>
+                <p> Intern | 15 days</p>
+                <p>As a Field Coordinator at VOICE 4 Boys campus, you manage daily camp operations and
+                    ensure sessions run smoothly. You support counsellors, handle logistics,
+                    and ensure the well-being of students. You act as a bridge between the core VOICE team
+                    and the on-ground team.
+                    The role sharpens leadership, communication, and crisis management skills.
+
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="projects fade-in-up" id="projects">
+        <h2 class="heading"> <span>My Projects</span></h2>
+        <div class="projects-container">
+            <a href="https://whisknroll.vercel.app/" class="project-item">
+                <h3>WhisknRoll <span class="project-status online"><i class='bx bx-check-circle'></i> Online</span></h3>
+                <p> This application serves as a complete digital platform for a restaurant,
+                    built on a secure backend for reliable data storage.It features robust user authentication,
+                    allowing customers to log in and enjoy a personalized experience.
+                    Once authenticated,users can easily access the full menu, browse inspiring recipes, and
+                    instantly book a table for their reservation,making it the essential resource for planning a meal.
+                </p>
+            </a>
+
+            <a href="https://medikami.netlify.app/" class="project-item">
+                <h3>MediKami<span class="project-status online"><i class='bx bx-check-circle'></i>Online</span></h3>
+                <p> Medikami Health Assistant is a smart health chatbot that provides quick,
+                    personalized insights and analyzes medical files like blood reports or prescriptions.
+                    It’s ideal for users seeking safe, instant guidance—especially
+                    in remote areas or during non-emergencies.</p>
+            </a>
+
+            <a href="https://github.com/Charithkakarla/kmrl-sih" class="project-item">
+                <h3>KMRL~Document Workflow <span class="project-status online"><i class='bx bx-check-circle'></i>
+                        Online</span></h3>
+                <p> We have built a prototype that automatically ingests documents from
+                    multiple sources, performs OCR and language detection, generates concise
+                    bilingual summaries, and routes them to the right department. A centralized
+                    dashboard with search and traceability ensures faster decisions, reduced
+                    duplication, and improved compliance at KMRL.</p>
+            </a>
+
+            <a href="https://github.com/Charithkakarla/webcatalyst-eventportal" class="project-item">
+                <h3>Eventportal<span class="project-status online"><i class='bx bx-check-circle'></i>
+                        Online</span></h3>
+                <p> We have built a smart event management portal that simplifies the entire
+                    process of organizing and attending college events. Participants can explore
+                    upcoming events, register with instant confirmations, and get quick answers
+                    through an AI assistant, while organizers can manage listings, track registrations,
+                    and generate reports with ease.</p>
+            </a>
+
+            <a href="#" class="project-item">
+                <h3>KIRA <span class="project-status in-dev"><i class='bx bx-wrench'></i> In Dev</span></h3>
+                <p> I am building a personal portfolio website that highlights my projects, skills, and
+                    achievements in a clean, professional, and user-friendly way.
+                </p>
+            </a>
+        </div>
+    </section>
+
+    <section class="skill fade-in-up" id="skills">
+        <h1>My Skills</h1>
+        <div class="skills-grid">
+            <!-- Technical Skills -->
+            <div class="skills-card">
+                <h3>Technical Proficiency</h3>
+                <div class="skill-bars">
+                    <div class="skill-item" data-skill="FULLSTACK" data-level="90"
+                        data-description="Proficient in building high-performance concurrent systems">
+                        <div class="skill-info">
+                            <span class="skill-name">C++</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>• High-performance systems</p>
+                            <p>• Concurrent programming</p>
+                            <p>• Microservices architecture</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-item" data-skill="Rust" data-level="60"
+                        data-description="Systems programming and memory safety">
+                        <div class="skill-info">
+                            <span class="skill-name">PYTHON</span>
+                            <span class="skill-percentage">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>• Memory safety</p>
+                            <p>• Systems programming</p>
+                            <p>• Performance optimization</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-item" data-skill="C++" data-level="35"
+                        data-description="Game development and system programming">
+                        <div class="skill-info">
+                            <span class="skill-name">JAVA</span>
+                            <span class="skill-percentage">35%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>• Game development</p>
+                            <p>• System programming</p>
+                            <p>• Data structures</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-item" data-skill="Python" data-level="65" data-description="AI/ML and automation">
+                        <div class="skill-info">
+                            <span class="skill-name">MERN</span>
+                            <span class="skill-percentage">65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>• Machine Learning</p>
+                            <p>• Data Analysis</p>
+                            <p>• Automation</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-item" data-skill="Java" data-level="75"
+                        data-description="Enterprise application development">
+                        <div class="skill-info">
+                            <span class="skill-name">UI/UX</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>• Enterprise apps</p>
+                            <p>• Spring Framework</p>
+                            <p>• Android development</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Metrics -->
+            <div class="skills-card">
+                <h3>Performance Metrics</h3>
+                <div class="metrics-container">
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <i class='bx bxs-keyboard'></i>
+                            <span>Typing Speed</span>
+                            <span class="metric-value">50 WPM</span>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <i class='bx bx-mouse'></i>
+                            <span>Gaming</span>
+                            <span class="metric-value">2 hrs</span>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <i class='bx bx-code-alt'></i>
+                            <span>CodeChef</span>
+                            <span class="metric-value"><a
+                                    href="https://www.codechef.com/users/kakarlacharith">1059</a></span>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header">
+                            <i class='bx bx-code-block'></i>
+                            <span>LeetCode</span>
+                            <span class="metric-value"><a href="https://leetcode.com/u/Charith28/">1395</a></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

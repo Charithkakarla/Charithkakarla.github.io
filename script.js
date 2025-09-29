@@ -2,31 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Canvas animation disabled
 
-    // Audio setup with error handling
-    let audio = null;
-    try {
-        audio = new Audio();
-        audio.src = "./omg.mp3";
-        
-        // Add error handling for audio loading
-        audio.addEventListener('error', (e) => {
-            console.warn('Audio file could not be loaded:', e.target.error);
-        });
-    } catch (error) {
-        console.warn('Audio playback not supported:', error);
-    }
 
-    // Make audio play on image click with error handling
-    const homeImg = document.querySelector('.home-img');
-    if (homeImg) {
-        homeImg.addEventListener('click', () => {
-            if (audio && audio.readyState >= 2) { // HAVE_CURRENT_DATA or better
-                audio.play().catch(error => {
-                    console.warn('Audio playback failed:', error);
-                });
-            }
-        });
-    }
 
     // Mobile menu functionality
     const menuIcon = document.querySelector('#menu-icon');

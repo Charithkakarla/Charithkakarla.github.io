@@ -2,8 +2,9 @@ name: Update Ratings
 
 on:
   schedule:
-    - cron: '*/15 * * * *'    # every 15 minutes
-  workflow_dispatch: {}       # manual trigger
+    # Runs at 00:00 (midnight) on Sunday.
+    - cron: '0 0 * * 0'   # 👈 CHANGED TO ONCE A WEEK
+  workflow_dispatch: {}     # manual trigger
 
 jobs:
   update:

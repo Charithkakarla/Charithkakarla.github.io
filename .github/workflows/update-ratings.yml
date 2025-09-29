@@ -2,12 +2,15 @@ name: Update Ratings
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # every 15 minutes
-  workflow_dispatch: {}     # manual trigger
+    - cron: '*/15 * * * *'    # every 15 minutes
+  workflow_dispatch: {}       # manual trigger
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write   # 👈 allows pushing changes
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,9 +31,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           if [ -n "$(git status --porcelain)" ]; then
             git add public/ratings.json
             git commit -m "Update ratings (auto)"
             git push
           else
             echo "No changes to commit"
+          fi

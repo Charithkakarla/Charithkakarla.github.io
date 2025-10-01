@@ -1,10 +1,7 @@
-// Background animations disabled for BWG theme
 document.addEventListener('DOMContentLoaded', () => {
-    // Canvas animation disabled
 
 
 
-    // Mobile menu functionality
     const menuIcon = document.querySelector('#menu-icon');
     const navbar = document.querySelector('.navbar');
 
@@ -14,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
             menuIcon.classList.toggle('bx-x');
         });
 
-        // Close menu when clicking a link
         document.querySelectorAll('.navbar a').forEach(link => {
             link.addEventListener('click', () => {
                 navbar.classList.remove('active');
@@ -29,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Canvas resize handler disabled
 });
 
 const text1 = document.getElementById('text1');
@@ -50,7 +45,6 @@ setInterval(() => {
 }, 3000);
 
 
-    // Initialize skill bars
     const skillItems = document.querySelectorAll('.skill-item');
     skillItems.forEach(item => {
         const level = item.dataset.level;
@@ -59,9 +53,7 @@ setInterval(() => {
     });
 
 
-    // Matrix rain effects disabled for BWG theme
 
-    // Scroll animations disabled for BWG theme
 
 
     

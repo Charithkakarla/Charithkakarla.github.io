@@ -7,7 +7,6 @@
     <title>charith</title>
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
@@ -26,6 +25,7 @@
             <a href="#experience">EXPERIENCE</a>
             <a href="#projects">PROJECTS</a>
             <a href="#skills">SKILLS</a>
+            <a href="#contact">CONTACT</a>
         </nav>
     </header>
 
@@ -102,7 +102,7 @@
     <section class="projects fade-in-up" id="projects">
         <h2 class="heading"> <span>My Projects</span></h2>
         <div class="projects-container">
-            <a href="https://whisknroll.vercel.app/" class="project-item">
+            <div class="project-item" onclick="openProjectModal('whisknroll')">
                 <h3>WhisknRoll <span class="project-status online"><i class='bx bx-check-circle'></i> Online</span></h3>
                 <p> This application serves as a complete digital platform for a restaurant,
                     built on a secure backend for reliable data storage.It features robust user authentication,
@@ -110,22 +110,21 @@
                     Once authenticated,users can easily access the full menu, browse inspiring recipes, and
                     instantly book a table for their reservation,making it the essential resource for planning a meal.
                 </p>
-            </a>
+            </div>
 
-            <a href="https://medikami.netlify.app/" class="project-item">
+            <div class="project-item" onclick="openProjectModal('medikami')">
                 <h3>MediKami<span class="project-status online"><i class='bx bx-check-circle'></i>Online</span></h3>
                 <p> Medikami Health Assistant is a smart health chatbot that provides quick,
                     personalized insights and analyzes medical files like blood reports or prescriptions.
                     It’s ideal for users seeking safe, instant guidance—especially
                     in remote areas or during non-emergencies.</p>
-            </a>
+            </div>
 
-            <a href="https://ruyk.me/" class="project-item">
+            <div class="project-item" onclick="openProjectModal('kira')">
                 <h3>KIRA<span class="project-status online"><i class='bx bx-check-circle'></i>Online</span></h3>
                 <p> I am building a personal portfolio website that highlights my projects, skills,
                     and achievements in a clean, professional, and user-friendly way.</p>
-                    
-            </a>
+            </div>
 
             <a href="https://github.com/Charithkakarla/webcatalyst-eventportal" class="project-item">
                 <h3>Eventportal<span class="project-status online"><i class='bx bx-check-circle'></i>Online</span></h3>
@@ -137,7 +136,8 @@
             </a>
 
             <a href="https://github.com/Charithkakarla/kmrl-sih" class="project-item">
-                <h3>KMRL~Document Workflow  <span class="project-status in-dev"><i class='bx bx-wrench'></i> In Dev</span></h3>
+                <h3>KMRL~Document Workflow <span class="project-status in-dev"><i class='bx bx-wrench'></i> In
+                        Dev</span></h3>
                 <p> We have built a prototype that automatically ingests documents from
                     multiple sources, performs OCR and language detection, generates concise
                     bilingual summaries, and routes them to the right department. A centralized
@@ -154,8 +154,7 @@
             <div class="skills-card">
                 <h3>Technical Proficiency</h3>
                 <div class="skill-bars">
-                    <div class="skill-item" data-skill="FULLSTACK" data-level="90"
-                        data-description="Proficient in building high-performance concurrent systems">
+                    <div class="skill-item">
                         <div class="skill-info">
                             <span class="skill-name">C++</span>
                             <span class="skill-percentage">90%</span>
@@ -170,8 +169,7 @@
                         </div>
                     </div>
 
-                    <div class="skill-item" data-skill="Rust" data-level="60"
-                        data-description="Systems programming and memory safety">
+                    <div class="skill-item">
                         <div class="skill-info">
                             <span class="skill-name">PYTHON</span>
                             <span class="skill-percentage">60%</span>
@@ -186,8 +184,7 @@
                         </div>
                     </div>
 
-                    <div class="skill-item" data-skill="C++" data-level="35"
-                        data-description="Game development and system programming">
+                    <div class="skill-item">
                         <div class="skill-info">
                             <span class="skill-name">JAVA</span>
                             <span class="skill-percentage">35%</span>
@@ -202,7 +199,7 @@
                         </div>
                     </div>
 
-                    <div class="skill-item" data-skill="Python" data-level="65" data-description="AI/ML and automation">
+                    <div class="skill-item">
                         <div class="skill-info">
                             <span class="skill-name">MERN</span>
                             <span class="skill-percentage">65%</span>
@@ -217,8 +214,7 @@
                         </div>
                     </div>
 
-                    <div class="skill-item" data-skill="Java" data-level="75"
-                        data-description="Enterprise application development">
+                    <div class="skill-item">
                         <div class="skill-info">
                             <span class="skill-name">UI/UX</span>
                             <span class="skill-percentage">75%</span>
@@ -278,6 +274,78 @@
         </div>
     </section>
 
+    <section class="contact fade-in-up" id="contact">
+        <h2 class="heading"><span>Get In Touch</span></h2>
+        <div class="contact-container">
+            <p class="contact-description">Ready to collaborate? Let's create something amazing together.</p>
+            <div class="contact-button-container">
+                <button id="contactBtn" class="contact-btn" onclick="openContactOptions()">
+                    <i class='bx bx-envelope'></i>
+                    <span>Contact Me</span>
+                </button>
+
+                <!-- Contact Options Modal -->
+                <div id="contactOptionsModal" class="contact-options-modal" style="display: none;">
+                    <div class="contact-options-content">
+                        <h3>How would you like to contact me?</h3>
+                        <div class="contact-options-buttons">
+                            <button class="contact-option-btn gmail-btn" onclick="openGmail()">
+                                <i class='bx bxl-gmail'></i>
+                                <span>Contact via Gmail</span>
+                            </button>
+                            <button class="contact-option-btn phone-btn" onclick="showPhoneNumber()">
+                                <i class='bx bx-phone'></i>
+                                <span>Contact via Phone</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phone Number Modal -->
+                <div id="phoneModal" class="phone-modal" style="display: none;">
+                    <div class="phone-content">
+                        <h3>My Phone Number</h3>
+                        <div class="phone-number-container">
+                            <span class="phone-number" id="phoneNumber">+91 7799663979</span>
+                            <button class="copy-btn" onclick="copyPhoneNumber()" title="Copy to clipboard">
+                                <i class='bx bx-copy'></i>
+                            </button>
+                        </div>
+                        <div class="phone-buttons">
+                            <button class="back-btn" onclick="backToContactOptions()">
+                                <i class='bx bx-arrow-back'></i>
+                                Back
+                            </button>
+                            <button class="close-phone" onclick="closeAllModals()">Close</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Copy Success Tooltip -->
+                <div id="copyTooltip" class="copy-tooltip" style="display: none;">
+                    <span>Copied!</span>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="iframe-container">
+                    <iframe id="projectIframe" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="modal-buttons">
+                    <a id="visitNewTab" href="" target="_blank" class="btn">Visit in New Tab</a>
+                    <a id="visitGithub" href="" target="_blank" class="btn">Visit on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="./script.js"></script>
 
     <script>
@@ -301,6 +369,151 @@
             }
         }
         showRatings();
+
+        // Contact functionality
+        function openContactOptions() {
+            document.getElementById('contactOptionsModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactOptions() {
+            document.getElementById('contactOptionsModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeAllModals() {
+            document.getElementById('contactOptionsModal').style.display = 'none';
+            document.getElementById('phoneModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function openGmail() {
+            const email = 'kakarlacharith3366@gmail.com';
+            const subject = encodeURIComponent("Have a Cool Idea? Let’s Talk!");
+            const body = encodeURIComponent("Hi Charith, I came across your portfolio and would love to collaborate.");
+
+            // Gmail compose URL
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
+
+            // Open Gmail in a popup window
+            const popupWidth = 800;
+            const popupHeight = 600;
+            const left = (screen.width - popupWidth) / 2;
+            const top = (screen.height - popupHeight) / 2;
+
+            window.open(
+                gmailUrl,
+                'gmailCompose',
+                `width=${popupWidth},height=${popupHeight},left=${left},top=${top},scrollbars=yes,resizable=yes,toolbar=no,menubar=no,location=no,status=no`
+            );
+            closeAllModals();
+        }
+
+        function showPhoneNumber() {
+            document.getElementById('contactOptionsModal').style.display = 'none';
+            document.getElementById('phoneModal').style.display = 'flex';
+        }
+
+        function backToContactOptions() {
+            document.getElementById('phoneModal').style.display = 'none';
+            document.getElementById('contactOptionsModal').style.display = 'flex';
+        }
+
+        function copyPhoneNumber() {
+            const phoneNumber = document.getElementById('phoneNumber').textContent;
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(phoneNumber).then(function () {
+                // Show success tooltip
+                const tooltip = document.getElementById('copyTooltip');
+                tooltip.style.display = 'block';
+
+                // Hide tooltip after 2 seconds
+                setTimeout(function () {
+                    tooltip.style.display = 'none';
+                }, 2000);
+            }).catch(function (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = phoneNumber;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+
+                // Show success tooltip
+                const tooltip = document.getElementById('copyTooltip');
+                tooltip.style.display = 'block';
+                setTimeout(function () {
+                    tooltip.style.display = 'none';
+                }, 2000);
+            });
+        }
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function (event) {
+            const contactModal = document.getElementById('contactOptionsModal');
+            const phoneModal = document.getElementById('phoneModal');
+
+            if (event.target === contactModal) {
+                closeContactOptions();
+            }
+            if (event.target === phoneModal) {
+                closeAllModals();
+            }
+        });
+
+        // Project modal functionality
+        const projectData = {
+            whisknroll: {
+                title: 'WhisknRoll',
+                url: 'https://whisknroll.vercel.app/',
+                github: 'https://github.com/Charithkakarla/WhisknRoll'
+            },
+            medikami: {
+                title: 'MediKami',
+                url: 'https://medikami.netlify.app/',
+                github: 'https://github.com/Charithkakarla/MediKami-HealthAI'
+            },
+            kira: {
+                title: 'KIRA',
+                url: 'https://ruyk.me/',
+                github: 'https://github.com/Charithkakarla/Charithkakarla.github.io'
+            }
+        };
+
+        function openProjectModal(projectKey) {
+            const project = projectData[projectKey];
+            if (!project) return;
+
+            document.getElementById('projectIframe').src = project.url;
+            document.getElementById('visitNewTab').href = project.url;
+            document.getElementById('visitGithub').href = project.github;
+
+            document.getElementById('projectModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            document.getElementById('projectModal').style.display = 'none';
+            document.getElementById('projectIframe').src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the iframe
+        window.onclick = function (event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target === modal) {
+                closeProjectModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeProjectModal();
+            }
+        });
     </script>
 
 </body>

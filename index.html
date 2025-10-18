@@ -10,8 +10,6 @@
 </head>
 
 <body>
-    <canvas id="c"></canvas>
-
     <header class="header">
         <a href="#home" class="logo">
             <img src="./public/logo.png" alt="Logo" class="logo-img"
@@ -32,7 +30,6 @@
     <section class="home fade-in-up" id="home">
         <div class="home-content">
             <h1>Charith k</h1>
-            <h3 class="text-animation"><span></span></h3>
 
             <div class="text-container">
                 <div class="text-wrapper">
@@ -67,13 +64,13 @@
                 <div class="skills">
                     <div class="skill-category">
                         <h4>Technical Skills</h4>
-                        <p>C++ • Python • Flask • SQL • AI Agents • React • NodeJs • linux • Git • DSA • (cloud)
+                        <p>C++ • Python • Flask • SQL • AI Agents • React • NodeJs • Git • DSA 
                             • UI/UX Design • ML • Tableau • Javascript</p>
                     </div>
                     <div class="skill-category">
                         <h4>Creative Skills</h4>
                         <p> touch typist • athlete • photography • rubix • gamer
-                            • editor • animations • badminton • cricket • puzzels</p>
+                            • editor • animations • badminton • cricket • puzzles</p>
                     </div>
 
                 </div>
@@ -369,6 +366,48 @@
             }
         }
         showRatings();
+
+        // Skill bars animation
+        function animateSkillBars() {
+            const skillItems = document.querySelectorAll('.skill-item');
+            
+            skillItems.forEach(item => {
+                const skillFill = item.querySelector('.skill-fill');
+                const percentageText = item.querySelector('.skill-percentage').textContent;
+                const percentage = parseInt(percentageText.replace('%', ''));
+                
+                // Reset width to 0
+                skillFill.style.width = '0%';
+                
+                // Animate to the target percentage
+                setTimeout(() => {
+                    skillFill.style.width = percentage + '%';
+                }, 100);
+            });
+        }
+
+        // Intersection Observer for skill bars animation
+        function observeSkillBars() {
+            const skillsSection = document.querySelector('.skill');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkillBars();
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, {
+                threshold: 0.5 // Trigger when 50% of the section is visible
+            });
+            
+            if (skillsSection) {
+                observer.observe(skillsSection);
+            }
+        }
+
+        // Initialize skill bars animation
+        observeSkillBars();
 
         // Contact functionality
         function openContactOptions() {

@@ -40,9 +40,4 @@ setInterval(() => {
   }
 }, 3000);
 
-const skillItems = document.querySelectorAll(".skill-item");
-skillItems.forEach((item) => {
-  const level = item.dataset.level;
-  const fill = item.querySelector(".skill-fill");
-  fill.style.width = level + "%";
-});
+

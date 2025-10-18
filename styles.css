@@ -36,10 +36,6 @@ body {
   position: relative;
 }
 
-canvas {
-  display: none;
-}
-
 .header {
   position: fixed;
   top: 0;
@@ -1161,10 +1157,10 @@ ogo Mobile Responsive Styles */
 
 .project-item:hover {
   transform: translateY(-3px);
-}/* Cont
+} /* Cont
 act Section */
 .contact {
-  padding: 6rem 9% 2rem;
+  padding: 3rem 9% 0.5rem;
   text-align: center;
 }
 
@@ -1176,7 +1172,7 @@ act Section */
 .contact-description {
   font-size: 1.8rem;
   color: var(--text-color);
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   opacity: 0.9;
 }
 
@@ -1209,13 +1205,18 @@ act Section */
 }
 
 .contact-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -1254,17 +1255,15 @@ act Section */
   transform: scale(1.1);
 }
 
-
-
 /* Mobile responsive contact */
 @media (max-width: 768px) {
   .contact {
-    padding: 4rem 4% 2rem;
+    padding: 2rem 4% 0.5rem;
   }
 
   .contact-description {
     font-size: 1.6rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .contact-btn {
@@ -1279,7 +1278,7 @@ act Section */
 
 @media (max-width: 450px) {
   .contact {
-    padding: 3rem 3% 2rem;
+    padding: 1.5rem 3% 0.5rem;
   }
 
   .contact-description {
@@ -1301,150 +1300,7 @@ act Section */
     text-align: center;
     padding: 0 1rem;
   }
-}/* E
-mail Options Modal */
-.email-options-modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(5px);
-  justify-content: center;
-  align-items: center;
-}
-
-.email-options-content {
-  background: var(--bg-color);
-  padding: 3rem;
-  border-radius: 20px;
-  border: 2px solid var(--separator-gray);
-  text-align: center;
-  position: relative;
-  max-width: 400px;
-  width: 90%;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-.email-options-content h3 {
-  color: var(--text-color);
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  font-weight: 600;
-}
-
-.email-options-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.email-option-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid var(--separator-gray);
-  color: var(--text-color);
-  padding: 1.2rem 2rem;
-  font-size: 1.6rem;
-  font-weight: 500;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  font-family: inherit;
-}
-
-.email-option-btn:hover {
-  background: var(--text-color);
-  color: var(--bg-color);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(26, 26, 26, 0.2);
-}
-
-.gmail-btn:hover {
-  background: var(--text-color);
-  border-color: var(--text-color);
-  color: white;
-}
-
-.email-option-btn i {
-  font-size: 2rem;
-}
-
-.close-options {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  font-size: 2.5rem;
-  color: var(--text-color);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.close-options:hover {
-  background: var(--text-color);
-  color: var(--bg-color);
-  transform: rotate(90deg);
-}
-
-
-
-/* Mobile responsive email options */
-@media (max-width: 768px) {
-  .email-options-content {
-    padding: 2rem;
-    margin: 1rem;
-  }
-
-  .email-options-content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .email-option-btn {
-    padding: 1rem 1.5rem;
-    font-size: 1.4rem;
-  }
-
-  .email-option-btn i {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 450px) {
-  .email-options-content {
-    padding: 1.5rem;
-  }
-
-  .email-options-content h3 {
-    font-size: 1.6rem;
-  }
-
-  .email-option-btn {
-    padding: 0.8rem 1rem;
-    font-size: 1.3rem;
-  }
-
-  .close-options {
-    font-size: 2rem;
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-}/* C
+} /* C
 ontact Options Modal Updates */
 .contact-options-modal {
   display: none;
@@ -1532,8 +1388,8 @@ ontact Options Modal Updates */
 }
 
 .phone-btn:hover {
-  background: #4CAF50;
-  border-color: #4CAF50;
+  background: #4caf50;
+  border-color: #4caf50;
   color: white;
 }
 
@@ -1593,7 +1449,7 @@ ontact Options Modal Updates */
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--text-color);
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
 }
 
 .copy-btn {
@@ -1625,7 +1481,8 @@ ontact Options Modal Updates */
   justify-content: center;
 }
 
-.back-btn, .close-phone {
+.back-btn,
+.close-phone {
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid var(--separator-gray);
   color: var(--text-color);
@@ -1641,7 +1498,8 @@ ontact Options Modal Updates */
   font-family: inherit;
 }
 
-.back-btn:hover, .close-phone:hover {
+.back-btn:hover,
+.close-phone:hover {
   background: var(--text-color);
   color: var(--bg-color);
   transform: translateY(-2px);
@@ -1665,31 +1523,48 @@ ontact Options Modal Updates */
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideIn {
-  from { 
+  from {
     opacity: 0;
     transform: translateY(-20px) scale(0.9);
   }
-  to { 
+  to {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
 }
 
 @keyframes tooltipFade {
-  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-  20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
 }
 
 /* Mobile responsive for new modals */
 @media (max-width: 768px) {
-  .contact-options-content, .phone-content {
+  .contact-options-content,
+  .phone-content {
     padding: 2rem;
     margin: 1rem;
   }
@@ -1711,5 +1586,55 @@ ontact Options Modal Updates */
   .phone-number-container {
     flex-direction: column;
     gap: 0.8rem;
+  }
+} /* Fo
+oter */
+.footer {
+  background: var(--bg-color);
+  border-top: 1px solid var(--separator-gray);
+  padding: 2rem 9% 1rem;
+  text-align: center;
+  margin-top: 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  font-size: 1.4rem;
+  color: var(--caption-gray);
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.footer-content p:hover {
+  opacity: 1;
+  color: var(--text-color);
+}
+
+/* Mobile responsive footer */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 4% 1rem;
+  }
+
+  .footer-content p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .footer {
+    padding: 1rem 3% 0.5rem;
+  }
+
+  .footer-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
   }
 }

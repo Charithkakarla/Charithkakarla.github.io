@@ -23,6 +23,7 @@
 html {
   font-size: 62.5%;
   overflow-x: hidden;
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -126,6 +127,7 @@ section {
   padding: 10rem 9% 2rem;
   position: relative;
   z-index: 1;
+  scroll-margin-top: 6rem;
 }
 
 .home {
@@ -422,7 +424,7 @@ span {
 
 /* Skills Section */
 .skill {
-  padding: 6rem 9% 2rem;
+  padding: 6rem 9% 4rem;
 }
 
 .skill h1 {
@@ -871,13 +873,7 @@ span {
 
 @media (max-width: 600px) {
   .skill {
-    width: 95%;
-    padding: 15px;
-  }
-
-  .skill li {
-    margin: 15px 0;
-    padding: 8px;
+    padding: 4rem 4% 2rem;
   }
 }
 
@@ -1160,7 +1156,7 @@ ogo Mobile Responsive Styles */
 } /* Cont
 act Section */
 .contact {
-  padding: 3rem 9% 0.5rem;
+  padding: 4rem 9% 0.5rem;
   text-align: center;
 }
 

@@ -20,6 +20,17 @@
   --pure-white: #ffffff;
 }
 
+[data-theme="dark"] {
+  --bg-color: #0a0a0a;
+  --second-bg-color: #121212;
+  --text-color: #e0e0e0;
+  --main-color: #e0e0e0;
+  --accent-color: #00ced1;
+  --caption-gray: #a0a0a0;
+  --separator-gray: #2a2a2a;
+  --pure-white: #0a0a0a;
+}
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -35,6 +46,13 @@ body {
   box-sizing: border-box;
   min-height: 100vh;
   position: relative;
+}
+
+body.modal-open {
+  overflow: hidden !important;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
 }
 
 .header {
@@ -115,6 +133,19 @@ body {
   border-bottom: 3px solid var(--text-color);
 }
 
+#theme-toggle {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-left: 2rem;
+}
+
+#theme-toggle:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
 #menu-icon {
   font-size: 3.6rem;
   color: var(--text-color);
@@ -123,8 +154,8 @@ body {
 }
 
 section {
-  min-height: 100vh;
-  padding: 10rem 9% 2rem;
+  min-height: auto;
+  padding: 6rem 9% 2rem;
   position: relative;
   z-index: 1;
   scroll-margin-top: 6rem;
@@ -260,7 +291,7 @@ span {
 
 /* About Section */
 .about {
-  padding: 6rem 9% 2rem;
+  padding: 4rem 9% 2rem;
 }
 
 .heading {
@@ -275,6 +306,171 @@ span {
   padding: 3rem;
   border-radius: 2rem;
   border: 2px solid var(--separator-gray);
+  position: relative;
+}
+
+.journey-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: var(--text-color);
+  color: #ffffff !important;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.journey-btn span {
+  color: #ffffff !important;
+}
+
+.journey-btn i {
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+  color: #ffffff !important;
+}
+
+.journey-btn:hover {
+  background: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 206, 209, 0.3);
+}
+
+.journey-btn:hover span,
+.journey-btn:hover i {
+  color: #ffffff !important;
+}
+
+.journey-btn:hover i {
+  transform: rotate(15deg);
+}
+
+[data-theme="dark"] .journey-btn {
+  background: #0a0a0a;
+  color: #ffffff;
+  border: 1px solid var(--separator-gray);
+}
+
+[data-theme="dark"] .journey-btn span,
+[data-theme="dark"] .journey-btn i {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .journey-btn:hover {
+  background: var(--accent-color);
+  color: #ffffff;
+  border: 1px solid var(--accent-color);
+}
+
+/* Journey Modal */
+.journey-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+  overflow: hidden;
+}
+
+.journey-modal-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.journey-modal-content {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  position: relative;
+  max-width: 1200px;
+  width: 85%;
+  height: 65vh;
+  overflow: hidden;
+  box-shadow: none;
+  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10001;
+  margin: 3% auto;
+}
+
+#journeyIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  display: block;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.journey-modal-content .modal-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--text-color);
+  border: none;
+  font-size: 3rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.journey-modal-content .modal-close-btn:hover {
+  background: var(--accent-color);
+  transform: rotate(90deg);
+}
+
+/* Responsive Journey */
+@media (max-width: 768px) {
+  .journey-btn {
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  .journey-btn i {
+    font-size: 1.6rem;
+  }
+
+  .journey-modal-content {
+    width: 95%;
+    height: 60vh;
+  }
+
+  .journey-modal-content .modal-close-btn {
+    top: 1rem;
+    right: 1rem;
+    width: 35px;
+    height: 35px;
+    font-size: 2.5rem;
+  }
 }
 
 .about-text p {
@@ -327,14 +523,14 @@ span {
 
 /* Projects Section */
 .projects {
-  padding: 6rem 9% 2rem;
+  padding: 4rem 9% 2rem;
 }
 
 .projects-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 3rem auto;
 }
 
@@ -348,6 +544,7 @@ span {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--separator-gray);
+  border-radius: 12px;
 }
 
 .project-item::before {
@@ -381,7 +578,9 @@ span {
 }
 
 .project-item:hover h3,
-.project-item:hover p {
+.project-item:hover p,
+.project-item:hover .description-short,
+.project-item:hover .description-full {
   color: var(--pure-white);
   opacity: 1;
 }
@@ -422,9 +621,51 @@ span {
   filter: brightness(1.08);
 }
 
+.project-item:hover .project-status.online {
+  background: var(--pure-white);
+  color: var(--text-color);
+  border: 1.5px solid var(--pure-white);
+}
+
+.project-item:hover .project-status.in-dev {
+  background: var(--pure-white);
+  color: var(--caption-gray);
+  border: 1.5px solid var(--pure-white);
+}
+
+.project-description {
+  position: relative;
+}
+
+.description-short {
+  display: inline;
+}
+
+.description-full {
+  display: none;
+}
+
+.read-more {
+  color: var(--accent-color);
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  display: inline;
+  text-decoration: underline;
+  transition: 0.3s ease;
+}
+
+.read-more:hover {
+  color: var(--text-color);
+}
+
+.project-item:hover .read-more {
+  color: var(--pure-white);
+}
+
 /* Skills Section */
 .skill {
-  padding: 6rem 9% 4rem;
+  padding: 4rem 9% 2rem;
 }
 
 .skill h1 {
@@ -560,7 +801,7 @@ span {
 
 /* Experience Section */
 .experience {
-  padding: 6rem 9% 2rem;
+  padding: 4rem 9% 2rem;
 }
 
 .experience-container {
@@ -820,6 +1061,7 @@ span {
   }
 
   .projects-container {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
@@ -1155,146 +1397,343 @@ ogo Mobile Responsive Styles */
   transform: translateY(-3px);
 } /* Cont
 act Section */
+/* Contact Section */
 .contact {
-  padding: 4rem 9% 0.5rem;
+  padding: 4rem 9% 3rem;
   text-align: center;
 }
 
 .contact-container {
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .contact-description {
   font-size: 1.8rem;
-  color: var(--text-color);
-  margin-bottom: 2rem;
+  color: var(--caption-gray);
+  margin-bottom: 4rem;
   opacity: 0.9;
 }
 
-.contact-button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.contact-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(26, 26, 26, 0.3);
-  color: var(--text-color);
-  padding: 1.5rem 3rem;
-  font-size: 1.8rem;
-  font-weight: 600;
-  border-radius: 50px;
+.contact-card {
+  background: var(--bg-color);
+  border: 2px solid var(--separator-gray);
+  border-radius: 20px;
+  padding: 3rem 2rem;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
   position: relative;
   overflow: hidden;
-  font-family: inherit;
-  letter-spacing: 0.5px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.contact-btn::before {
-  content: "";
+.contact-card::before {
+  content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(0, 206, 209, 0.1), transparent);
   transition: left 0.5s;
 }
 
-.contact-btn:hover::before {
+.contact-card:hover::before {
   left: 100%;
 }
 
-.contact-btn:hover {
-  background: var(--text-color);
-  color: white;
-  border-color: var(--text-color);
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(26, 26, 26, 0.2);
+.contact-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-color);
+  box-shadow: 0 15px 40px rgba(0, 206, 209, 0.2);
 }
 
-.contact-btn:hover span {
-  color: white !important;
+.contact-icon-wrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.contact-btn span {
-  color: inherit;
-  transition: color 0.3s ease;
+.contact-icon-wrapper i {
+  font-size: 4rem;
+  color: var(--text-color);
+  transition: all 0.4s ease;
+  z-index: 2;
+  position: relative;
 }
 
-.contact-btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 25px rgba(26, 26, 26, 0.15);
+.icon-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-color);
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(20px);
+  transition: opacity 0.4s ease;
 }
 
-.contact-btn i {
-  font-size: 2rem;
+.contact-card:hover .icon-glow {
+  opacity: 0.3;
+}
+
+.contact-card:hover .contact-icon-wrapper i {
+  color: var(--accent-color);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.contact-card h3 {
+  font-size: 2.2rem;
+  color: var(--text-color);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.contact-card p {
+  font-size: 1.4rem;
+  color: var(--caption-gray);
+  margin-bottom: 1.5rem;
+}
+
+.contact-card-hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+  color: var(--accent-color);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-card-hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-card-hover i {
+  font-size: 1.8rem;
   transition: transform 0.3s ease;
 }
 
-.contact-btn:hover i {
-  transform: scale(1.1);
+.contact-card:hover .contact-card-hover i {
+  transform: translateX(5px);
+}
+
+/* Phone Modal */
+.phone-modal {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.phone-modal-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.phone-content {
+  background: var(--bg-color);
+  padding: 4rem 3rem;
+  border-radius: 25px;
+  border: 2px solid var(--separator-gray);
+  text-align: center;
+  position: relative;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 3001;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  font-size: 3rem;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.modal-close-btn:hover {
+  background: var(--separator-gray);
+  transform: rotate(90deg);
+}
+
+.phone-icon-large {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 2rem;
+  background: linear-gradient(135deg, var(--accent-color), var(--text-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 206, 209, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(0, 206, 209, 0);
+  }
+}
+
+.phone-icon-large i {
+  font-size: 4.5rem;
+  color: white;
+}
+
+.phone-content h3 {
+  font-size: 2.8rem;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.phone-number-display {
+  background: var(--second-bg-color);
+  border: 2px solid var(--separator-gray);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.phone-number {
+  font-size: 2.4rem;
+  color: var(--text-color);
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-family: 'Courier New', monospace;
+}
+
+.copy-phone-btn {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 1.5rem 3rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 auto;
+  font-family: inherit;
+}
+
+.copy-phone-btn i {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.copy-phone-btn span {
+  color: #ffffff;
+}
+
+.copy-success {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 206, 209, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  animation: fadeInSuccess 0.3s ease;
+}
+
+@keyframes fadeInSuccess {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.copy-success i {
+  font-size: 2rem;
 }
 
 /* Mobile responsive contact */
 @media (max-width: 768px) {
   .contact {
-    padding: 2rem 4% 0.5rem;
+    padding: 3rem 4% 2rem;
   }
 
   .contact-description {
     font-size: 1.6rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
   }
 
-  .contact-btn {
-    padding: 1.2rem 2.5rem;
-    font-size: 1.6rem;
+  .contact-cards {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
-  .contact-btn i {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 450px) {
-  .contact {
-    padding: 1.5rem 3% 0.5rem;
+  .contact-card {
+    padding: 2.5rem 2rem;
   }
 
-  .contact-description {
-    font-size: 1.4rem;
+  .phone-content {
+    padding: 3rem 2rem;
   }
 
-  .contact-btn {
-    padding: 1rem 2rem;
-    font-size: 1.4rem;
-    border-radius: 40px;
-  }
-
-  .contact-btn i {
-    font-size: 1.6rem;
-  }
-
-  .contact-fallback {
-    font-size: 1.2rem;
-    text-align: center;
-    padding: 0 1rem;
+  .phone-number {
+    font-size: 2rem;
   }
 } /* C
 ontact Options Modal Updates */

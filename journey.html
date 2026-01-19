@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Journey</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Share Tech Mono", monospace;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            padding: 1.5rem;
+            min-height: 100vh;
+        }
+
+        :root {
+            --bg-color: #f5f5f5;
+            --second-bg-color: #f5f5f5;
+            --text-color: #1a1a1a;
+            --accent-color: #00ced1;
+            --caption-gray: #757575;
+            --separator-gray: #dedede;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0a0a0a;
+            --second-bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #00ced1;
+            --caption-gray: #a0a0a0;
+            --separator-gray: #2a2a2a;
+        }
+
+        .journey-title {
+            font-size: 1.8rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--separator-gray);
+        }
+
+        .journey-title i {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+
+        .journey-timeline {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent-color), var(--text-color));
+        }
+
+        .journey-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.2rem;
+        }
+
+        .journey-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .journey-dot {
+            position: absolute;
+            left: -3.15rem;
+            top: 0.5rem;
+            width: 14px;
+            height: 14px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            border: 3px solid var(--bg-color);
+            box-shadow: 0 0 0 2px var(--separator-gray);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .journey-item:hover .journey-dot {
+            background: var(--text-color);
+            transform: scale(1.2);
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        .journey-content {
+            background: var(--second-bg-color);
+            padding: 1.2rem;
+            border-radius: 10px;
+            border: 1px solid var(--separator-gray);
+            transition: all 0.3s ease;
+        }
+
+        .journey-item:hover .journey-content {
+            transform: translateX(5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 5px 20px rgba(0, 206, 209, 0.15);
+        }
+
+        .journey-date {
+            color: var(--accent-color);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            display: inline-block;
+            padding: 0.3rem 0.7rem;
+            background: rgba(0, 206, 209, 0.1);
+            border-radius: 12px;
+        }
+
+        .journey-content h3 {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .journey-degree {
+            font-size: 1.1rem;
+            color: var(--caption-gray);
+            margin-bottom: 0.6rem;
+            font-style: italic;
+        }
+
+        .journey-grade,
+        .journey-location {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-top: 0.5rem;
+        }
+
+        .journey-grade i,
+        .journey-location i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .journey-grade {
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1.5rem;
+            }
+
+            .journey-title {
+                font-size: 2.2rem;
+            }
+
+            .journey-timeline {
+                padding-left: 2rem;
+            }
+
+            .journey-dot {
+                left: -2.65rem;
+            }
+
+            .journey-content h3 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2 class="journey-title">
+        <i class='bx bx-book-open'></i>
+        My Educational Journey
+    </h2>
+    <div class="journey-timeline">
+        <div class="journey-item">
+            <div class="journey-dot"></div>
+            <div class="journey-content">
+                <div class="journey-date">Oct 2023 - Nov 2027</div>
+                <h3>VNR Vignana Jyothi Institute of Engineering and Technology</h3>
+                <p class="journey-degree">Bachelor of Technology - BTech, Artificial Intelligence</p>
+                <div class="journey-location">
+                    <i class='bx bx-map'></i>
+                    <span>VNRVJIET</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="journey-item">
+            <div class="journey-dot"></div>
+            <div class="journey-content">
+                <div class="journey-date">Aug 2021 - Mar 2023</div>
+                <h3>Sri Chaitanya College of Education</h3>
+                <p class="journey-degree">MPC (Mathematics, Physics, Chemistry)</p>
+                <div class="journey-grade">
+                    <i class='bx bx-trophy'></i>
+                    <span>Grade: A+</span>
+                </div>
+                <div class="journey-location">
+                    <i class='bx bx-map'></i>
+                    <span>Khammam</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="journey-item">
+            <div class="journey-dot"></div>
+            <div class="journey-content">
+                <div class="journey-date">Feb 2008 - Sep 2020</div>
+                <h3>V. V. Central Public School</h3>
+                <p class="journey-degree">CBSE</p>
+                <div class="journey-grade">
+                    <i class='bx bx-trophy'></i>
+                    <span>Grade: 8.9</span>
+                </div>
+                <div class="journey-location">
+                    <i class='bx bx-map'></i>
+                    <span>Khammam</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Detect parent theme and apply it
+        function applyParentTheme() {
+            try {
+                const parentTheme = window.parent.document.body.getAttribute('data-theme');
+                if (parentTheme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {
+                // Cross-origin restriction, use default theme
+            }
+        }
+
+        applyParentTheme();
+
+        // Listen for theme changes from parent
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'themeChange') {
+                if (event.data.theme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.removeAttribute('data-theme');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

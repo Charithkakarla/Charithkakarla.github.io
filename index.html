@@ -25,6 +25,7 @@
             <a href="#skills">SKILLS</a>
             <a href="#contact">CONTACT</a>
         </nav>
+        <i class="bx bx-moon" id="theme-toggle"></i>
     </header>
 
     <section class="home fade-in-up" id="home">
@@ -55,6 +56,10 @@
     <section class="about fade-in-up" id="about">
         <h2 class="heading"><span>About Me</span></h2>
         <div class="about-content">
+            <button class="journey-btn" onclick="openJourneyModal()">
+                <i class='bx bx-book-open'></i>
+                <span>My Journey</span>
+            </button>
             <div class="about-text">
                 <p>It is only after we've lost everything that we're free to do anything.</p>
                 <p>UG @vnr
@@ -74,6 +79,17 @@
                     </div>
 
                 </div>
+            </div>
+        </div>
+
+        <!-- Journey Modal -->
+        <div id="journeyModal" class="journey-modal" style="display: none;">
+            <div class="journey-modal-overlay" onclick="closeJourneyModal()"></div>
+            <div class="journey-modal-content">
+                <button class="modal-close-btn" onclick="closeJourneyModal()">
+                    <i class='bx bx-x'></i>
+                </button>
+                <iframe id="journeyIframe" src="journey.html?v=4" frameborder="0"></iframe>
             </div>
         </div>
     </section>
@@ -101,53 +117,76 @@
         <div class="projects-container">
             <div class="project-item" onclick="openProjectModal('whisknroll')">
                 <h3>WhisknRoll <span class="project-status online"><i class='bx bx-check-circle'></i> Online</span></h3>
-                <p> This application serves as a complete digital platform for a restaurant,
-                    built on a secure backend for reliable data storage.It features robust user authentication,
+                <p class="project-description">
+                    <span class="description-short">This application serves as a complete digital platform for a restaurant, built on a secure backend...</span>
+                    <span class="description-full" style="display: none;"> This application serves as a complete digital platform for a restaurant,
+                    built on a secure backend for reliable data storage. It features robust user authentication,
                     allowing customers to log in and enjoy a personalized experience.
-                    Once authenticated,users can easily access the full menu, browse inspiring recipes, and
-                    instantly book a table for their reservation,making it the essential resource for planning a meal.
+                    Once authenticated, users can easily access the full menu, browse inspiring recipes, and
+                    instantly book a table for their reservation, making it the essential resource for planning a meal.</span>
+                    <span class="read-more" onclick="event.stopPropagation(); toggleDescription(this)">Read more</span>
                 </p>
             </div>
 
             <div class="project-item" onclick="openProjectModal('medikami')">
                 <h3>MediKami<span class="project-status online"><i class='bx bx-check-circle'></i>Online</span></h3>
-                <p> Medikami Health Assistant is a smart health chatbot that provides quick,
+                <p class="project-description">
+                    <span class="description-short">Medikami Health Assistant is a smart health chatbot that provides quick, personalized insights...</span>
+                    <span class="description-full" style="display: none;"> Medikami Health Assistant is a smart health chatbot that provides quick,
                     personalized insights and analyzes medical files like blood reports or prescriptions.
-                    It’s ideal for users seeking safe, instant guidance—especially
-                    in remote areas or during non-emergencies.</p>
+                    It's ideal for users seeking safe, instant guidance—especially
+                    in remote areas or during non-emergencies.</span>
+                    <span class="read-more" onclick="event.stopPropagation(); toggleDescription(this)">Read more</span>
+                </p>
             </div>
 
-            <div class="project-item" onclick="openProjectModal('kira')">
-                <h3>KIRA<span class="project-status online"><i class='bx bx-check-circle'></i>Online</span></h3>
-                <p> I am building a personal portfolio website that highlights my projects, skills,
-                    and achievements in a clean, professional, and user-friendly way.</p>
-            </div>
-
-            <a href="https://github.com/Charithkakarla/webcatalyst-eventportal" class="project-item">
+            <a href="https://github.com/Charithkakarla/webcatalyst-eventportal" target="_blank" class="project-item">
                 <h3>Eventportal<span class="project-status online"><i class='bx bx-check-circle'></i>Online</span></h3>
-                <p> We have built a smart event management portal that simplifies the entire
+                <p class="project-description">
+                    <span class="description-short">A smart event management portal that simplifies organizing and attending college events...</span>
+                    <span class="description-full" style="display: none;"> We have built a smart event management portal that simplifies the entire
                     process of organizing and attending college events. Participants can explore
                     upcoming events, register with instant confirmations, and get quick answers
                     through an AI assistant, while organizers can manage listings, track registrations,
-                    and generate reports with ease.</p>
+                    and generate reports with ease.</span>
+                    <span class="read-more" onclick="event.preventDefault(); event.stopPropagation(); toggleDescription(this)">Read more</span>
+                </p>
             </a>
 
-            <a href="https://github.com/Charithkakarla/kmrl-sih" class="project-item">
+            <a href="https://github.com/Charithkakarla/kmrl-sih" target="_blank" class="project-item">
                 <h3>KMRL~Document Workflow <span class="project-status in-dev"><i class='bx bx-wrench'></i> In
                         Dev</span></h3>
-                <p> We have built a prototype that automatically ingests documents from
+                <p class="project-description">
+                    <span class="description-short">A prototype that automatically ingests documents from multiple sources, performs OCR...</span>
+                    <span class="description-full" style="display: none;"> We have built a prototype that automatically ingests documents from
                     multiple sources, performs OCR and language detection, generates concise
                     bilingual summaries, and routes them to the right department. A centralized
                     dashboard with search and traceability ensures faster decisions, reduced
-                    duplication, and improved compliance at KMRL.
+                    duplication, and improved compliance at KMRL.</span>
+                    <span class="read-more" onclick="event.preventDefault(); event.stopPropagation(); toggleDescription(this)">Read more</span>
                 </p>
             </a>
 
             <a href="https://github.com/Charithkakarla/Churn-Prediction" target="_blank" class="project-item">
                 <h3>Employee Churn Prediction <span class="project-status online"><i class='bx bx-check-circle'></i>Online</span></h3>
-                <p> A machine learning project that predicts employee attrition using advanced algorithms.
+                <p class="project-description">
+                    <span class="description-short">A machine learning project that predicts employee attrition using advanced algorithms...</span>
+                    <span class="description-full" style="display: none;"> A machine learning project that predicts employee attrition using advanced algorithms.
                     The model analyzes various factors to help organizations identify at-risk employees
-                    and take proactive measures to improve retention rates.
+                    and take proactive measures to improve retention rates.</span>
+                    <span class="read-more" onclick="event.preventDefault(); event.stopPropagation(); toggleDescription(this)">Read more</span>
+                </p>
+            </a>
+
+            <a href="https://github.com/Charithkakarla/rfp-automation" target="_blank" class="project-item">
+                <h3>RFP Automation <span class="project-status in-dev"><i class='bx bx-wrench'></i> In Dev</span></h3>
+                <p class="project-description">
+                    <span class="description-short">An intelligent automation system for Request for Proposal (RFP) processing...</span>
+                    <span class="description-full" style="display: none;"> An intelligent automation system for Request for Proposal (RFP) processing.
+                    This project streamlines the RFP workflow by automating document analysis,
+                    response generation, and compliance checks, helping organizations respond
+                    to proposals more efficiently and accurately.</span>
+                    <span class="read-more" onclick="event.preventDefault(); event.stopPropagation(); toggleDescription(this)">Read more</span>
                 </p>
             </a>
         </div>
@@ -280,58 +319,74 @@
     </section>
 
     <section class="contact fade-in-up" id="contact">
-        <h2 class="heading"><span>Get In Touch</span></h2>
+        <h2 class="heading"><span>Let's Connect</span></h2>
         <div class="contact-container">
-            <p class="contact-description">Ready to collaborate? Let's create something amazing together.</p>
-            <div class="contact-button-container">
-                <button id="contactBtn" class="contact-btn" onclick="openContactOptions()">
-                    <i class='bx bx-envelope'></i>
-                    <span>Contact Me</span>
-                </button>
-
-                <!-- Contact Options Modal -->
-                <div id="contactOptionsModal" class="contact-options-modal" style="display: none;">
-                    <div class="contact-options-content">
-                        <h3>How would you like to contact me?</h3>
-                        <div class="contact-options-buttons">
-                            <button class="contact-option-btn gmail-btn" onclick="openGmail()">
-                                <i class='bx bxl-gmail'></i>
-                                <span>Contact via Gmail</span>
-                            </button>
-                            <button class="contact-option-btn phone-btn" onclick="showPhoneNumber()">
-                                <i class='bx bx-phone'></i>
-                                <span>Contact via Phone</span>
-                            </button>
-                        </div>
+            <p class="contact-description">Choose your preferred way to reach out</p>
+            
+            <div class="contact-cards">
+                <div class="contact-card" onclick="openGmail()">
+                    <div class="contact-icon-wrapper">
+                        <i class='bx bxl-gmail'></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>Email Me</h3>
+                    <p>Drop me a line anytime</p>
+                    <div class="contact-card-hover">
+                        <span>Click to send email</span>
+                        <i class='bx bx-right-arrow-alt'></i>
                     </div>
                 </div>
 
-                <!-- Phone Number Modal -->
-                <div id="phoneModal" class="phone-modal" style="display: none;">
-                    <div class="phone-content">
-                        <h3>My Phone Number</h3>
-                        <div class="phone-number-container">
-                            <span class="phone-number" id="phoneNumber">+91 7799663979</span>
-                            <button class="copy-btn" onclick="copyPhoneNumber()" title="Copy to clipboard">
-                                <i class='bx bx-copy'></i>
-                            </button>
-                        </div>
-                        <div class="phone-buttons">
-                            <button class="back-btn" onclick="backToContactOptions()">
-                                <i class='bx bx-arrow-back'></i>
-                                Back
-                            </button>
-                            <button class="close-phone" onclick="closeAllModals()">Close</button>
-                        </div>
+                <div class="contact-card" onclick="showPhoneNumber()">
+                    <div class="contact-icon-wrapper">
+                        <i class='bx bx-phone-call'></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>Call Me</h3>
+                    <p>Let's talk directly</p>
+                    <div class="contact-card-hover">
+                        <span>Click to reveal number</span>
+                        <i class='bx bx-right-arrow-alt'></i>
                     </div>
                 </div>
 
-                <!-- Copy Success Tooltip -->
-                <div id="copyTooltip" class="copy-tooltip" style="display: none;">
-                    <span>Copied!</span>
+                <div class="contact-card" onclick="window.open('https://www.linkedin.com/in/kakarla-charith-377512295/', '_blank')">
+                    <div class="contact-icon-wrapper">
+                        <i class='bx bxl-linkedin-square'></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <p>Connect professionally</p>
+                    <div class="contact-card-hover">
+                        <span>Visit my profile</span>
+                        <i class='bx bx-right-arrow-alt'></i>
+                    </div>
                 </div>
+            </div>
 
-
+            <!-- Phone Number Modal -->
+            <div id="phoneModal" class="phone-modal" style="display: none;">
+                <div class="phone-modal-overlay" onclick="closePhoneModal()"></div>
+                <div class="phone-content">
+                    <button class="modal-close-btn" onclick="closePhoneModal()">
+                        <i class='bx bx-x'></i>
+                    </button>
+                    <div class="phone-icon-large">
+                        <i class='bx bx-phone'></i>
+                    </div>
+                    <h3>Call Me</h3>
+                    <div class="phone-number-display">
+                        <span class="phone-number" id="phoneNumber">+91 7799663979</span>
+                    </div>
+                    <button class="copy-phone-btn" onclick="copyPhoneNumber()">
+                        <i class='bx bx-copy'></i>
+                        <span>Copy Number</span>
+                    </button>
+                    <div id="copySuccess" class="copy-success" style="display: none;">
+                        <i class='bx bx-check-circle'></i>
+                        <span>Copied to clipboard!</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -434,6 +489,17 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Journey Modal Functions
+        function openJourneyModal() {
+            document.getElementById('journeyModal').style.display = 'flex';
+            document.body.classList.add('modal-open');
+        }
+
+        function closeJourneyModal() {
+            document.getElementById('journeyModal').style.display = 'none';
+            document.body.classList.remove('modal-open');
+        }
+
         function openGmail() {
             const email = 'kakarlacharith3366@gmail.com';
             const subject = encodeURIComponent("Have a Cool Idea? Let’s Talk!");
@@ -453,34 +519,31 @@
                 'gmailCompose',
                 `width=${popupWidth},height=${popupHeight},left=${left},top=${top},scrollbars=yes,resizable=yes,toolbar=no,menubar=no,location=no,status=no`
             );
-            closeAllModals();
         }
 
         function showPhoneNumber() {
-            document.getElementById('contactOptionsModal').style.display = 'none';
             document.getElementById('phoneModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
 
-        function backToContactOptions() {
+        function closePhoneModal() {
             document.getElementById('phoneModal').style.display = 'none';
-            document.getElementById('contactOptionsModal').style.display = 'flex';
+            document.body.style.overflow = 'auto';
+            const success = document.getElementById('copySuccess');
+            if (success) success.style.display = 'none';
         }
 
         function copyPhoneNumber() {
             const phoneNumber = document.getElementById('phoneNumber').textContent;
 
-            // Copy to clipboard
             navigator.clipboard.writeText(phoneNumber).then(function () {
-                // Show success tooltip
-                const tooltip = document.getElementById('copyTooltip');
-                tooltip.style.display = 'block';
-
-                // Hide tooltip after 2 seconds
+                const success = document.getElementById('copySuccess');
+                success.style.display = 'flex';
+                
                 setTimeout(function () {
-                    tooltip.style.display = 'none';
-                }, 2000);
+                    success.style.display = 'none';
+                }, 3000);
             }).catch(function (err) {
-                // Fallback for older browsers
                 const textArea = document.createElement('textarea');
                 textArea.value = phoneNumber;
                 document.body.appendChild(textArea);
@@ -488,12 +551,11 @@
                 document.execCommand('copy');
                 document.body.removeChild(textArea);
 
-                // Show success tooltip
-                const tooltip = document.getElementById('copyTooltip');
-                tooltip.style.display = 'block';
+                const success = document.getElementById('copySuccess');
+                success.style.display = 'flex';
                 setTimeout(function () {
-                    tooltip.style.display = 'none';
-                }, 2000);
+                    success.style.display = 'none';
+                }, 3000);
             });
         }
 

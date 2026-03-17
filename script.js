@@ -16,46 +16,38 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.removeAttribute("data-theme");
       themeToggle.classList.replace("bx-sun", "bx-moon");
       localStorage.setItem("theme", "light");
-      
-      // Send theme change to journey iframe
-      const journeyIframe = document.getElementById("journeyIframe");
-      if (journeyIframe) {
-        journeyIframe.contentWindow.postMessage({ type: 'themeChange', theme: 'light' }, '*');
-      }
     } else {
       document.body.setAttribute("data-theme", "dark");
       themeToggle.classList.replace("bx-moon", "bx-sun");
       localStorage.setItem("theme", "dark");
-      
-      // Send theme change to journey iframe
-      const journeyIframe = document.getElementById("journeyIframe");
-      if (journeyIframe) {
-        journeyIframe.contentWindow.postMessage({ type: 'themeChange', theme: 'dark' }, '*');
-      }
     }
   });
 
-  // Menu toggle functionality
-  if (menuIcon && navbar) {
-    menuIcon.addEventListener("click", () => {
-      navbar.classList.toggle("active");
-      menuIcon.classList.toggle("bx-x");
-    });
+  // Active section tracking for dock
+  const sections = document.querySelectorAll("section");
+  const dockItems = document.querySelectorAll(".dock-item");
 
-    document.querySelectorAll(".navbar a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navbar.classList.remove("active");
-        menuIcon.classList.remove("bx-x");
-      });
-    });
+  const observerOptions = {
+    threshold: 0.6,
+  };
 
-    // Close menu when scrolling
-    window.addEventListener("scroll", () => {
-      navbar.classList.remove("active");
-      menuIcon.classList.remove("bx-x");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute("id");
+        dockItems.forEach((item) => {
+          item.classList.remove("active");
+          if (item.getAttribute("href") === `#${id}`) {
+            item.classList.add("active");
+          }
+        });
+      }
     });
-  }
+  }, observerOptions);
+
+  sections.forEach((section) => observer.observe(section));
 });
+
 
 const text1 = document.getElementById("text1");
 const text2 = document.getElementById("text2");

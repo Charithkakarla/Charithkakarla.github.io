@@ -16,16 +16,9 @@
                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <span class="logo-text" style="display: none;">CK</span>
         </a>
-        <i class="bx bx-menu" id="menu-icon"></i>
-        <nav class="navbar">
-            <a href="#home" class="active">HOME</a>
-            <a href="#about">ABOUT</a>
-            <a href="#experience">EXPERIENCE</a>
-            <a href="#projects">PROJECTS</a>
-            <a href="#skills">SKILLS</a>
-            <a href="#contact">CONTACT</a>
+        <nav class="navbar-top">
+            <i class="bx bx-moon" id="theme-toggle"></i>
         </nav>
-        <i class="bx bx-moon" id="theme-toggle"></i>
     </header>
 
     <section class="home fade-in-up" id="home">
@@ -56,10 +49,6 @@
     <section class="about fade-in-up" id="about">
         <h2 class="heading"><span>About Me</span></h2>
         <div class="about-content">
-            <button class="journey-btn" onclick="openJourneyModal()">
-                <i class='bx bx-book-open'></i>
-                <span>My Journey</span>
-            </button>
             <div class="about-text">
                 <p>It is only after we've lost everything that we're free to do anything.</p>
                 <p>UG @vnr
@@ -82,24 +71,20 @@
             </div>
         </div>
 
-        <!-- Journey Modal -->
-        <div id="journeyModal" class="journey-modal" style="display: none;">
-            <div class="journey-modal-overlay" onclick="closeJourneyModal()"></div>
-            <div class="journey-modal-content">
-                <button class="modal-close-btn" onclick="closeJourneyModal()">
-                    <i class='bx bx-x'></i>
-                </button>
-                <iframe id="journeyIframe" src="journey.html?v=4" frameborder="0"></iframe>
-            </div>
-        </div>
     </section>
 
     <section class="experience fade-in-up" id="experience">
         <h2 class="heading"><span>My Experience</span></h2>
         <div class="experience-container">
             <div class="experience-item">
+                <h3>Vjstartups</h3>
+                <p>Intern | 1 Month (Feb 1 - March 1)</p>
+                <p>As a full-stack developer intern at Vjstartups, I gained hands-on experience in a fast-paced startup environment. My primary focus was architecting and implementing the RFP Automation project, where I developed intelligent workflows and document processing systems. I also actively participated in team sync-ups and reported detailed progress updates directly to the organization head on a weekly basis, refining my technical and professional communication skills.
+                </p>
+            </div>
+            <div class="experience-item">
                 <h3>VOICE-4 organisation</h3>
-                <p> Intern | 15 days</p>
+                <p> Intern | June - July</p>
                 <p>As a Field Coordinator at VOICE 4 Boys campus, you manage daily camp operations and
                     ensure sessions run smoothly. You support counsellors, handle logistics,
                     and ensure the well-being of students. You act as a bridge between the core VOICE team
@@ -115,6 +100,42 @@
     <section class="projects fade-in-up" id="projects">
         <h2 class="heading"> <span>My Projects</span></h2>
         <div class="projects-container">
+            <a href="https://github.com/Charithkakarla/ThyroRAG" target="_blank" class="project-item">
+                <h3>ThyroRAG <span class="project-status in-dev"><i class='bx bx-wrench'></i> In Dev</span></h3>
+                <p class="project-description">
+                    <span class="description-short">ThyroRAG is an AI-powered thyroid disease screening system using CatBoost and RAG...</span>
+                    <span class="description-full" style="display: none;"> ThyroRAG is a full-stack medical AI application combining a high-accuracy CatBoost ML model with a dual-source Retrieval-Augmented Generation (RAG) chatbot and OCR-based lab report ingestion for professional thyroid disease detection.</span>
+                    <span class="read-more" onclick="event.preventDefault(); event.stopPropagation(); toggleDescription(this)">Read more</span>
+                </p>
+            </a>
+
+            <a href="https://github.com/Charithkakarla/Tracepic" target="_blank" class="project-item">
+                <h3>Tracepic <span class="project-status in-dev"><i class='bx bx-wrench'></i> In Dev</span></h3>
+                <p class="project-description">
+                    <span class="description-short">A Geospatial Metadata & Movement Reconstruction system that extracts locations from images...</span>
+                    <span class="description-full" style="display: none;"> Tracepic extracts deep metadata via Apache Tika & EXIF, detects landmarks with ResNet50, and infers location from visual cues when GPS is stripped, reconstructing movement timelines on interactive maps.</span>
+                    <span class="read-more" onclick="event.preventDefault(); event.stopPropagation(); toggleDescription(this)">Read more</span>
+                </p>
+            </a>
+
+            <a href="https://github.com/Charithkakarla/Semantic-entropy-file-system-SFES-" target="_blank" class="project-item">
+                <h3>SEFS <span class="project-status online"><i class='bx bx-check-circle'></i> Online</span></h3>
+                <p class="project-description">
+                    <span class="description-short">An intelligent, self-organizing file system that understands the conceptual meaning of documents...</span>
+                    <span class="description-full" style="display: none;"> Semantic Entropy File System (SEFS) leverages AI to automatically group related files into "semantic clusters" and physically reorganizes your disk in real-time based on document meaning.</span>
+                    <span class="read-more" onclick="event.preventDefault(); event.stopPropagation(); toggleDescription(this)">Read more</span>
+                </p>
+            </a>
+
+            <a href="https://github.com/Charithkakarla/agentathon" target="_blank" class="project-item">
+                <h3>Procure AI <span class="project-status online"><i class='bx bx-check-circle'></i> Online</span></h3>
+                <p class="project-description">
+                    <span class="description-short">AI-powered tender scraping, analysis, and bid management system for govt procurement...</span>
+                    <span class="description-full" style="display: none;"> Procure AI automates tender discovery from government portals, uses RAG-based AI for Q&A on complex documents, and provides automated compliance and risk scoring for bid management.</span>
+                    <span class="read-more" onclick="event.preventDefault(); event.stopPropagation(); toggleDescription(this)">Read more</span>
+                </p>
+            </a>
+
             <div class="project-item" onclick="openProjectModal('whisknroll')">
                 <h3>WhisknRoll <span class="project-status online"><i class='bx bx-check-circle'></i> Online</span></h3>
                 <p class="project-description">
@@ -179,7 +200,7 @@
             </a>
 
             <a href="https://github.com/Charithkakarla/rfp-automation" target="_blank" class="project-item">
-                <h3>RFP Automation <span class="project-status in-dev"><i class='bx bx-wrench'></i> In Dev</span></h3>
+                <h3>RFP Automation <span class="project-status online"><i class='bx bx-check-circle'></i> Online</span></h3>
                 <p class="project-description">
                     <span class="description-short">An intelligent automation system for Request for Proposal (RFP) processing...</span>
                     <span class="description-full" style="display: none;"> An intelligent automation system for Request for Proposal (RFP) processing.
@@ -191,6 +212,70 @@
             </a>
         </div>
     </section>
+
+    <section class="achievements fade-in-up" id="achievements">
+        <h2 class="heading"><span>Achievements</span></h2>
+        <div class="achievements-container">
+            <div class="achievement-card">
+                <div class="achievement-img">
+                    <img src="./public/Top 100 coders certificate.jpg" alt="Top 100 Coders">
+                </div>
+                <h3>Top 100 Coders</h3>
+                <p>Recognition as one of the top competitive programmers in the region.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-img">
+                    <img src="./public/innovation internship certificate.jpeg" alt="Innovation Internship">
+                </div>
+                <h3>Innovation Internship</h3>
+                <p>Successfully completed a high-impact internship focused on emerging technologies.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-img">
+                    <img src="./public/startup expo certificate.jpeg" alt="Startup Expo">
+                </div>
+                <h3>Startup Expo</h3>
+                <p>Honored for outstanding performance/participation at the Startup Expo.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-img">
+                    <img src="./public/synthvision certificate.jpeg" alt="SynthVision">
+                </div>
+                <h3>SynthVision</h3>
+                <p>Awarded for innovation in computer vision/AI during the SynthVision event.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Dock -->
+    <div class="dock-container">
+        <nav class="dock">
+            <a href="#home" class="dock-item active" data-label="Home">
+                <i class='bx bx-home-alt-2'></i>
+            </a>
+            <a href="#about" class="dock-item" data-label="About">
+                <i class='bx bx-user'></i>
+            </a>
+            <a href="#experience" class="dock-item" data-label="Experience">
+                <i class='bx bx-briefcase-alt-2'></i>
+            </a>
+            <a href="#projects" class="dock-item" data-label="Projects">
+                <i class='bx bx-rocket'></i>
+            </a>
+            <a href="#achievements" class="dock-item" data-label="Awards">
+                <i class='bx bx-trophy'></i>
+            </a>
+            <a href="#skills" class="dock-item" data-label="Skills">
+                <i class='bx bx-code-alt'></i>
+            </a>
+            <a href="#contact" class="dock-item" data-label="Contact">
+                <i class='bx bx-message-square-detail'></i>
+            </a>
+        </nav>
+    </div>
 
     <section class="skill fade-in-up" id="skills">
         <h1>My Skills</h1>
@@ -280,8 +365,8 @@
                 <div class="metrics-container">
                     <div class="metric-item">
                         <div class="metric-header">
-                            <img src="./public/sm.png" alt="Social Media" style="width: 1.2em; height: 1.2em;">
-                            <span>Social media</span>
+                            <i class='bx bx-hash'></i>
+                            <span>Social Media</span>
                             <span class="metric-value">1hr 45min</span>
                         </div>
                     </div>
@@ -489,16 +574,8 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Journey Modal Functions
-        function openJourneyModal() {
-            document.getElementById('journeyModal').style.display = 'flex';
-            document.body.classList.add('modal-open');
-        }
-
-        function closeJourneyModal() {
-            document.getElementById('journeyModal').style.display = 'none';
-            document.body.classList.remove('modal-open');
-        }
+        // Initialize skill bars animation
+        observeSkillBars();
 
         function openGmail() {
             const email = 'kakarlacharith3366@gmail.com';
@@ -588,6 +665,26 @@
                 title: 'KIRA',
                 url: 'https://ruyk.me/',
                 github: 'https://github.com/Charithkakarla/Charithkakarla.github.io'
+            },
+            thyrorag: {
+                title: 'ThyroRAG',
+                url: 'https://github.com/Charithkakarla/ThyroRAG',
+                github: 'https://github.com/Charithkakarla/ThyroRAG'
+            },
+            tracepic: {
+                title: 'Tracepic',
+                url: 'https://github.com/Charithkakarla/Tracepic',
+                github: 'https://github.com/Charithkakarla/Tracepic'
+            },
+            sefs: {
+                title: 'SEFS',
+                url: 'https://github.com/Charithkakarla/Semantic-entropy-file-system-SFES-',
+                github: 'https://github.com/Charithkakarla/Semantic-entropy-file-system-SFES-'
+            },
+            procureai: {
+                title: 'Procure AI',
+                url: 'https://github.com/Charithkakarla/agentathon',
+                github: 'https://github.com/Charithkakarla/agentathon'
             }
         };
 

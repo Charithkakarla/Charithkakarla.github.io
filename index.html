@@ -213,39 +213,69 @@
         </div>
     </section>
 
+    <!-- Achievements Section -->
     <section class="achievements fade-in-up" id="achievements">
-        <h2 class="heading"><span>Achievements</span></h2>
+        <h2 class="heading"> <span>My Certificates</span></h2>
         <div class="achievements-container">
-            <div class="achievement-card">
-                <div class="achievement-img">
-                    <img src="./public/Top 100 coders certificate.jpg" alt="Top 100 Coders">
-                </div>
-                <h3>Top 100 Coders</h3>
-                <p>Recognition as one of the top competitive programmers in the region.</p>
+            <div class="achievement-card" onclick="openCertificateModal('./public/agentathon participation.png', 'Agentathon Participation')">
+                <img src="./public/agentathon participation.png" alt="Agentathon Participation">
+                <h3>Agentathon Participation</h3>
+                <p>Participated in Agentathon, a competition focused on AI agent development and innovation.</p>
             </div>
-
-            <div class="achievement-card">
-                <div class="achievement-img">
-                    <img src="./public/innovation internship certificate.jpeg" alt="Innovation Internship">
-                </div>
+            <div class="achievement-card" onclick="openCertificateModal('./public/delloite certificate.png', 'Deloitte Certificate')">
+                <img src="./public/delloite certificate.png" alt="Deloitte Certificate">
+                <h3>Deloitte Certificate</h3>
+                <p>Professional certification from Deloitte in consulting and digital transformation.</p>
+            </div>
+            <div class="achievement-card" onclick="openCertificateModal('./public/electronics arts certificates.png', 'Electronics Arts Certificate')">
+                <img src="./public/electronics arts certificates.png" alt="Electronics Arts Certificate">
+                <h3>Electronics Arts Certificate</h3>
+                <p>Certification from Electronics Arts in game development and interactive media.</p>
+            </div>
+            <div class="achievement-card" onclick="openCertificateModal('./public/genrative ai certificate.png', 'Generative AI Certificate')">
+                <img src="./public/genrative ai certificate.png" alt="Generative AI Certificate">
+                <h3>Generative AI Certificate</h3>
+                <p>Advanced certification in Generative AI, covering LLMs and modern AI techniques.</p>
+            </div>
+            <div class="achievement-card" onclick="openCertificateModal('./public/government certificate.png', 'Government Certificate')">
+                <img src="./public/government certificate.png" alt="Government Certificate">
+                <h3>Government Certificate</h3>
+                <p>Official certificate from government authorities recognizing skills and contributions.</p>
+            </div>
+            <div class="achievement-card" onclick="openCertificateModal('./public/Hack with hyderabad certificate.png', 'Hack with Hyderabad')">
+                <img src="./public/Hack with hyderabad certificate.png" alt="Hack with Hyderabad">
+                <h3>Hack with Hyderabad</h3>
+                <p>Certificate of participation in Hack with Hyderabad, a major hackathon event.</p>
+            </div>
+            <div class="achievement-card" onclick="openCertificateModal('./public/innovation internship certificate.jpeg', 'Innovation Internship Certificate')">
+                <img src="./public/innovation internship certificate.jpeg" alt="Innovation Internship">
                 <h3>Innovation Internship</h3>
-                <p>Successfully completed a high-impact internship focused on emerging technologies.</p>
+                <p>Internship certificate from an innovation-focused organization in tech field.</p>
             </div>
-
-            <div class="achievement-card">
-                <div class="achievement-img">
-                    <img src="./public/startup expo certificate.jpeg" alt="Startup Expo">
-                </div>
-                <h3>Startup Expo</h3>
-                <p>Honored for outstanding performance/participation at the Startup Expo.</p>
+            <div class="achievement-card" onclick="openCertificateModal('./public/simplilearn certificate.png', 'Simplilearn Certificate')">
+                <img src="./public/simplilearn certificate.png" alt="Simplilearn Certificate">
+                <h3>Simplilearn Certificate</h3>
+                <p>Professional learner certificate from Simplilearn platform on technology topics.</p>
             </div>
-
-            <div class="achievement-card">
-                <div class="achievement-img">
-                    <img src="./public/synthvision certificate.jpeg" alt="SynthVision">
-                </div>
-                <h3>SynthVision</h3>
-                <p>Awarded for innovation in computer vision/AI during the SynthVision event.</p>
+            <div class="achievement-card" onclick="openCertificateModal('./public/startup expo certificate.jpeg', 'Startup Expo Certificate')">
+                <img src="./public/startup expo certificate.jpeg" alt="Startup Expo">
+                <h3>Startup Expo Certificate</h3>
+                <p>Recognition certificate from participation in startup expo and entrepreneurship event.</p>
+            </div>
+            <div class="achievement-card" onclick="openCertificateModal('./public/synthvision certificate.jpeg', 'Synthvision Certificate')">
+                <img src="./public/synthvision certificate.jpeg" alt="Synthvision Certificate">
+                <h3>Synthvision Certificate</h3>
+                <p>Certificate in computer vision and synthetic image processing technologies.</p>
+            </div>
+            <div class="achievement-card" onclick="openCertificateModal('./public/Top 100 coders certificate.jpg', 'Top 100 Coders Certificate')">
+                <img src="./public/Top 100 coders certificate.jpg" alt="Top 100 Coders">
+                <h3>Top 100 Coders</h3>
+                <p>Recognition certificate for being among top 100 coders in a competitive programming event.</p>
+            </div>
+            <div class="achievement-card" onclick="openCertificateModal('./public/Webcatalyst_participation_certificate.png', 'Webcatalyst Participation')">
+                <img src="./public/Webcatalyst_participation_certificate.png" alt="Webcatalyst Participation">
+                <h3>Webcatalyst Participation</h3>
+                <p>Certificate of participation in Webcatalyst, a web development competition event.</p>
             </div>
         </div>
     </section>
@@ -491,6 +521,20 @@
         </div>
     </div>
 
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeCertificateModal()">
+                <i class='bx bx-x'></i>
+            </button>
+            <div class="modal-body">
+                <div class="certificate-container">
+                    <img id="certificateImage" src="" alt="Certificate" class="certificate-image">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="./script.js"></script>
 
     <script>
@@ -718,6 +762,27 @@
         document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
                 closeProjectModal();
+                closeCertificateModal();
+            }
+        });
+
+        // Certificate modal functionality
+        function openCertificateModal(certificateUrl, title) {
+            document.getElementById('certificateImage').src = certificateUrl;
+            document.getElementById('certificateModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCertificateModal() {
+            document.getElementById('certificateModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close certificate modal when clicking outside
+        document.addEventListener('click', function (event) {
+            const certificateModal = document.getElementById('certificateModal');
+            if (event.target === certificateModal) {
+                closeCertificateModal();
             }
         });
     </script>

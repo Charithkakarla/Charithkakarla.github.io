@@ -24,30 +24,54 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Active section tracking for dock
-  const sections = document.querySelectorAll("section");
-  const dockItems = document.querySelectorAll(".dock-item");
+  const sections = Array.from(document.querySelectorAll("section[id]"));
+  const dockItems = Array.from(document.querySelectorAll(".dock-item"));
 
-  const observerOptions = {
-    threshold: 0.6,
-  };
+  function setActiveDockItem(sectionId) {
+    dockItems.forEach((item) => {
+      item.classList.toggle("active", item.getAttribute("href") === `#${sectionId}`);
+    });
+  }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute("id");
-        dockItems.forEach((item) => {
-          item.classList.remove("active");
-          if (item.getAttribute("href") === `#${id}`) {
-            item.classList.add("active");
-          }
-        });
+  function updateActiveSection() {
+    const marker = window.scrollY + window.innerHeight * 0.35;
+    let activeSectionId = sections[0]?.id;
+
+    sections.forEach((section) => {
+      if (marker >= section.offsetTop) {
+        activeSectionId = section.id;
       }
     });
-  }, observerOptions);
 
-  sections.forEach((section) => observer.observe(section));
+    if (activeSectionId) {
+      setActiveDockItem(activeSectionId);
+    }
+  }
+
+  window.addEventListener("scroll", updateActiveSection, { passive: true });
+  window.addEventListener("resize", updateActiveSection);
+  updateActiveSection();
 });
 
+function showCertIframe(src, title) {
+    const modal = document.getElementById('cert-viewer');
+    const iframe = document.getElementById('cert-iframe');
+    const modalTitle = document.getElementById('cert-viewer-title');
+
+    modalTitle.textContent = title;
+    iframe.src = encodeURI(src);
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCertIframe() {
+    const modal = document.getElementById('cert-viewer');
+    const iframe = document.getElementById('cert-iframe');
+
+    modal.style.display = 'none';
+    iframe.src = ''; // Clear source to stop loading
+    document.body.style.overflow = 'auto';
+}
 
 const text1 = document.getElementById("text1");
 const text2 = document.getElementById("text2");

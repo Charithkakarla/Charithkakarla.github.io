@@ -15,6 +15,7 @@
   --text-color: #1a1a1a;
   --main-color: #1a1a1a;
   --accent-color: #00ced1;
+  --spark-color: #1a1a1a;
   --caption-gray: #757575;
   --separator-gray: #dedede;
   --pure-white: #ffffff;
@@ -26,6 +27,7 @@
   --text-color: #e0e0e0;
   --main-color: #e0e0e0;
   --accent-color: #00ced1;
+  --spark-color: #f2f2f2;
   --caption-gray: #a0a0a0;
   --separator-gray: #2a2a2a;
   --pure-white: #0a0a0a;
@@ -53,6 +55,20 @@ body.modal-open {
   height: 100vh;
   position: fixed;
   width: 100%;
+}
+
+.click-spark-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 9999;
+}
+
+.click-spark-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .header {

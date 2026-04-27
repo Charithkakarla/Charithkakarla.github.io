@@ -466,6 +466,24 @@
         <h2 class="heading"><span>Let's Connect</span></h2>
         <div class="contact-container">
             <p class="contact-description">Choose your preferred way to reach out</p>
+            <p class="contact-tagline">Let's build something together.</p>
+
+            <div class="contact-quick-actions">
+                <a class="contact-cta-btn" href="mailto:kakarlacharith3366@gmail.com?subject=Hiring%20Inquiry%20for%20Charith">Hire Me</a>
+                <a class="contact-cta-btn secondary" href="./public/freshresume%20(8).pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
+            </div>
+
+            <form id="contactForm" class="contact-form" onsubmit="submitContactForm(event)">
+                <div class="contact-form-field">
+                    <label for="contactName">Your Name</label>
+                    <input type="text" id="contactName" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="contact-form-field">
+                    <label for="contactMessage">Message</label>
+                    <textarea id="contactMessage" name="message" rows="4" placeholder="Tell me about your idea..." required></textarea>
+                </div>
+                <button type="submit" class="contact-form-submit">Send Message</button>
+            </form>
             
             <div class="contact-cards">
                 <div class="contact-card" onclick="openGmail()">
@@ -494,18 +512,6 @@
                     </div>
                 </div>
 
-                <div class="contact-card" onclick="window.open('https://www.linkedin.com/in/kakarla-charith-377512295/', '_blank')">
-                    <div class="contact-icon-wrapper">
-                        <i class='bx bxl-linkedin-square'></i>
-                        <div class="icon-glow"></div>
-                    </div>
-                    <h3>LinkedIn</h3>
-                    <p>Connect professionally</p>
-                    <div class="contact-card-hover">
-                        <span>Visit my profile</span>
-                        <i class='bx bx-right-arrow-alt'></i>
-                    </div>
-                </div>
             </div>
 
             <!-- Phone Number Modal -->

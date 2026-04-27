@@ -59,6 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
     duration: 400,
     extraScale: 1
   });
+
+  addProjectStoryLayers();
 });
 
 function initClickSpark(options = {}) {
@@ -218,6 +220,7 @@ setInterval(() => {
 // Toggle project description
 function toggleDescription(element) {
   const description = element.closest('.project-description');
+  const projectCard = element.closest('.project-item');
   const shortText = description.querySelector('.description-short');
   const fullText = description.querySelector('.description-full');
   
@@ -225,9 +228,142 @@ function toggleDescription(element) {
     shortText.style.display = 'none';
     fullText.style.display = 'inline';
     element.textContent = 'Read less';
+    if (projectCard) {
+      projectCard.classList.add('expanded');
+    }
   } else {
     shortText.style.display = 'inline';
     fullText.style.display = 'none';
     element.textContent = 'Read more';
+    if (projectCard) {
+      projectCard.classList.remove('expanded');
+    }
   }
+}
+
+function addProjectStoryLayers() {
+  const stories = {
+    "RFP Automation": {
+      problem: "Manual tender processing is slow and inefficient.",
+      solution: "Built a multi-agent AI workflow to automate RFP analysis and response drafting.",
+      impact: "Reduced manual effort by about 60% while improving turnaround speed."
+    },
+    "ThyroRAG": {
+      problem: "Thyroid screening is often delayed due to fragmented reports and guidance.",
+      solution: "Combined CatBoost prediction, OCR ingestion, and RAG chat assistance.",
+      impact: "Enabled faster triage support with explainable, context-aware responses."
+    },
+    Tracepic: {
+      problem: "Investigators lose clues when image GPS metadata is missing or stripped.",
+      solution: "Used metadata extraction and visual landmark inference for location reconstruction.",
+      impact: "Improved movement timeline recovery for geospatial analysis workflows."
+    },
+    SEFS: {
+      problem: "Large document collections become chaotic and hard to navigate.",
+      solution: "Created semantic clustering that reorganizes files by contextual meaning.",
+      impact: "Cut search friction and improved organization quality for daily workflows."
+    },
+    "Procure AI": {
+      problem: "Teams miss deadlines due to scattered tenders and complex compliance docs.",
+      solution: "Automated tender discovery with AI-driven Q&A and risk scoring.",
+      impact: "Accelerated bid readiness and improved compliance confidence."
+    },
+    WhisknRoll: {
+      problem: "Restaurant customers struggle with fragmented booking and menu experiences.",
+      solution: "Built an integrated platform for auth, menu browsing, recipes, and table booking.",
+      impact: "Delivered a smoother end-to-end customer journey and booking flow."
+    },
+    MediKami: {
+      problem: "People need quick, safe health guidance before reaching clinicians.",
+      solution: "Developed a chatbot that interprets reports and provides personalized health insights.",
+      impact: "Improved accessibility to preliminary guidance, especially in remote contexts."
+    },
+    Eventportal: {
+      problem: "College events are hard to discover, manage, and track at scale.",
+      solution: "Built a portal with registrations, organizer controls, and AI assistance.",
+      impact: "Streamlined event operations and improved participant communication."
+    },
+    "KMRL~Document Workflow": {
+      problem: "Department routing of multilingual documents is slow and error-prone.",
+      solution: "Automated OCR, bilingual summaries, and intelligent department routing.",
+      impact: "Reduced document handling delays and improved process traceability."
+    },
+    "Employee Churn Prediction": {
+      problem: "Attrition risks are usually detected after critical talent is already lost.",
+      solution: "Trained a predictive model using key HR and behavioral features.",
+      impact: "Enabled proactive retention actions and earlier intervention planning."
+    },
+    "EduChat AI": {
+      problem: "Students often lack instant, personalized doubt-solving support.",
+      solution: "Built an AI tutor that explains concepts through interactive conversation.",
+      impact: "Increased learning accessibility and speed of concept clarification."
+    },
+    "P2P Energy Trading": {
+      problem: "Renewable energy surplus often goes unused in local communities.",
+      solution: "Designed a peer-to-peer marketplace for transparent local energy exchange.",
+      impact: "Boosted utilization potential of distributed clean energy resources."
+    },
+    "AgroRoute AI": {
+      problem: "Farm logistics face delays from route uncertainty and volatile conditions.",
+      solution: "Created AI-based route planning using demand, weather, and road signals.",
+      impact: "Reduced delivery inefficiency and helped minimize produce spoilage risk."
+    }
+  };
+
+  const cards = document.querySelectorAll(".projects-container .project-item");
+
+  cards.forEach((card) => {
+    if (card.querySelector(".project-story")) {
+      return;
+    }
+
+    const h3 = card.querySelector("h3");
+    if (!h3) {
+      return;
+    }
+
+    const rawTitle = (h3.childNodes[0]?.textContent || h3.textContent || "").trim();
+    const story = stories[rawTitle] || {
+      problem: "Teams face repetitive manual workflows that limit speed.",
+      solution: "Implemented automation-first architecture with focused AI support.",
+      impact: "Improved productivity and delivery consistency for end users."
+    };
+
+    const storyBlock = document.createElement("div");
+    storyBlock.className = "project-story";
+    storyBlock.setAttribute("aria-hidden", "true");
+    storyBlock.innerHTML = `
+      <div class="story-layer"><span class="story-label">Problem</span><span class="story-text">${story.problem}</span></div>
+      <div class="story-layer"><span class="story-label">Solution</span><span class="story-text">${story.solution}</span></div>
+      <div class="story-layer"><span class="story-label">Impact</span><span class="story-text">${story.impact}</span></div>
+    `;
+
+    card.appendChild(storyBlock);
+  });
+}
+
+function submitContactForm(event) {
+  event.preventDefault();
+
+  const nameInput = document.getElementById("contactName");
+  const messageInput = document.getElementById("contactMessage");
+
+  if (!nameInput || !messageInput) {
+    return;
+  }
+
+  const name = nameInput.value.trim();
+  const message = messageInput.value.trim();
+
+  if (!name || !message) {
+    return;
+  }
+
+  const to = "kakarlacharith3366@gmail.com";
+  const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+  const body = encodeURIComponent(`Name: ${name}\n\nMessage:\n${message}`);
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${subject}&body=${body}`;
+
+  window.open(gmailUrl, "_blank", "noopener,noreferrer");
+  event.target.reset();
 }

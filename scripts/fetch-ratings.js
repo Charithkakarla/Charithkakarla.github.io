@@ -49,15 +49,37 @@ async function fetchText(url) {
     return await res.text();
 }
 
+function stripHtml(html) {
+    return html
+        .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+        .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/&nbsp;/gi, ' ')
+        .replace(/&amp;/gi, '&')
+        .replace(/&quot;/gi, '"')
+        .replace(/&#39;/gi, "'")
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
 function parseCodeChef(html) {
-    // Updated regex to look specifically for the rating number inside the span with class 'rating'
-    const m = html.match(/current-rating.*?rating">([\d,]+)</i);
-    if (!m) {
-         // Fallback if the first pattern fails (sometimes the class changes)
-         const fallback = html.match(/rating-number[^>]*>([\d,]+)/i);
-         return fallback ? parseInt(fallback[1].replace(/,/g, ''), 10) : null;
+    const text = stripHtml(html);
+
+    const patterns = [
+        /(?:CodeChef\s+)?Rating\s*DSA\s+Rating\s+([\d,]+)/i,
+        /DSA\s+Rating\s+([\d,]+)/i,
+        /current-rating.*?rating">([\d,]+)/i,
+        /rating-number[^>]*>([\d,]+)/i,
+    ];
+
+    for (const pattern of patterns) {
+        const match = text.match(pattern);
+        if (match) {
+            return parseInt(match[1].replace(/,/g, ''), 10);
+        }
     }
-    return parseInt(m[1].replace(/,/g, ''), 10);
+
+    return null;
 }
 
 // --- Main Execution ---

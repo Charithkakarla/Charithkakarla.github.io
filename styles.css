@@ -19,6 +19,8 @@
   --caption-gray: #757575;
   --separator-gray: #dedede;
   --pure-white: #ffffff;
+  --github-fill: var(--pure-white);
+  --github-fill-light: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -31,6 +33,8 @@
   --caption-gray: #a0a0a0;
   --separator-gray: #2a2a2a;
   --pure-white: #0a0a0a;
+  --github-fill: var(--pure-white);
+  --github-fill-light: #0a0a0a;
 }
 
 html {
@@ -411,6 +415,99 @@ span {
   background: var(--second-bg-color);
   border: 1px solid var(--accent-color);
   box-shadow: 0 14px 30px rgba(0, 206, 209, 0.2);
+}
+
+/* Github icon/button shown in project cards */
+.github-link {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 44px;
+  height: 44px;
+  padding: 0 8px;
+  background: #111; /* fixed dark background to ensure contrast */
+  border-radius: 999px;
+  border: 1.5px solid #111;
+  color: #fff; /* icon/text color */
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: width 0.22s ease, padding 0.22s ease, background 0.22s ease, color 0.22s ease, transform 0.22s ease;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 200;
+}
+
+.github-link i {
+  font-size: 1.6rem;
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+/* Ensure the boxicons font is used for the icon (fixes missing icon if overridden) */
+.github-link i,
+.github-link i::before {
+  font-family: boxicons !important;
+  speak: none;
+  line-height: 1;
+  color: var(--text-color) !important;
+  opacity: 1 !important;
+}
+
+/* Ensure inline SVG icon uses the link's foreground color and is visible */
+.github-svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex: 0 0 18px;
+}
+.github-link .github-svg path {
+  fill: #fff !important; /* always white octocat before hover */
+}
+
+.github-text {
+  display: inline-block;
+  margin-left: 6px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.github-link:hover,
+.github-link:focus {
+  width: 140px;
+  padding: 0 12px;
+  background: var(--accent-color);
+  color: var(--pure-white);
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 30px rgba(0, 206, 209, 0.18);
+  transform: translateY(-2px);
+}
+
+.github-link:hover i,
+.github-link:focus i {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.github-link:hover .github-text,
+.github-link:focus .github-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.github-link,
+.github-link:hover,
+.github-link:focus {
+  text-decoration: none;
 }
 
 .project-item h3 {

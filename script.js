@@ -61,6 +61,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   addProjectStoryLayers();
+  // Make clicking a project card toggle its "Read more" content (clicking the small GitHub link still opens GitHub)
+  const projectCards = document.querySelectorAll('.projects-container .project-item');
+  projectCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const read = card.querySelector('.read-more');
+      if (read) toggleDescription(read);
+    });
+    const gh = card.querySelector('.github-link');
+    if (gh) gh.addEventListener('click', (e) => { e.stopPropagation(); });
+  });
 });
 
 function initClickSpark(options = {}) {
